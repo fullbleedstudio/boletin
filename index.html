@@ -1,0 +1,850 @@
+<!doctype html>
+<!--
+  Boletín de Qué Cambia, landing de alta (21-11-2026).
+  Titular del hero: el eslogan del canal, «¿Qué cambia para ti?» (decisión del dueño, 21-11-2026).
+    Descartados: «Lo que te cambia, antes de que te pille.» (no todo lo que pasa te «pilla»)
+                 «Tu dinero, tus derechos y tus plazos. En 5 minutos.»
+  Frecuencia: un único sitio, el objeto FREQ al principio del <script>. Los textos dentro de [data-freq] son solo
+  el respaldo sin JS. En público se dice «dos veces por semana» (decisión del dueño, 21-11-2026), sin nombrar días. og.png lleva la frecuencia dentro.
+  Cifras ([data-metric]) y testimonios ([data-testimonio], numerados como los dio el dueño) puestos a mano el 21-11-2026.
+  El número de suscriptores del boletín NO se enseña, por decisión del dueño.
+-->
+<html lang="es">
+<head>
+<!-- Copia de quecambia.es/boletin en GitHub Pages (boletin.quecambia.es), fuera de Cloudflare para los bloqueos de LaLiga. El alta va al mini servidor de Netlify. No editar aquí: se genera desde fullbleed-site/quecambia/public/boletin.html. -->
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>El boletín de Qué Cambia · ¿Qué cambia para ti?</title>
+<meta name="description" content="Lo que pasa en España y en el mundo, y cómo te afecta: tu dinero, tu día a día y tus derechos. Dos veces por semana en tu correo, sin bandos. Gratis.">
+<meta name="theme-color" content="#0C0C0B">
+<link rel="icon" href="/assets/que-cambia-icono.png">
+<link rel="canonical" href="https://quecambia.es/boletin">
+<meta property="og:title" content="El boletín de Qué Cambia">
+<meta property="og:description" content="Lo que pasa en España y en el mundo, y cómo te afecta. Dos veces por semana en tu correo, sin bandos.">
+<meta property="og:url" content="https://quecambia.es/boletin">
+<meta property="og:image" content="https://quecambia.es/assets/boletin/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preload" href="/assets/fonts/hanken-latin.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="preload" href="/assets/fonts/anton-400.woff2" as="font" type="font/woff2" crossorigin>
+<script defer src="https://cloud.umami.is/script.js" data-website-id="1facdecd-7f13-4a94-9b76-18a5593acb29" data-domains="fullbleedstudio.com,www.fullbleedstudio.com,quecambia.es,boletin.quecambia.es"></script>
+<style>
+@font-face{font-family:'Hanken Grotesk';font-weight:400 800;src:url(/assets/fonts/hanken-latin.woff2) format('woff2');font-display:swap;unicode-range:U+0000-00FF,U+0131,U+0152-0153,U+02BB-02BC,U+02C6,U+02DA,U+02DC,U+0304,U+0308,U+0329,U+2000-206F,U+20AC,U+2122,U+2191,U+2193,U+2212,U+2215,U+FEFF,U+FFFD}
+@font-face{font-family:'Hanken Grotesk';font-weight:400 800;src:url(/assets/fonts/hanken-latin-ext.woff2) format('woff2');font-display:swap;unicode-range:U+0100-02BA,U+02BD-02C5,U+02C7-02CC,U+02CE-02D7,U+02DD-02FF,U+0304,U+0308,U+0329,U+1D00-1DBF,U+1E00-1E9F,U+1EF2-1EFF,U+2020,U+20A0-20AB,U+20AD-20C0,U+2113,U+2C60-2C7F,U+A720-A7FF}
+@font-face{font-family:'Anton';font-weight:400;src:url(/assets/fonts/anton-400.woff2) format('woff2');font-display:swap}
+/* Same tokens as the home page. Yellow is a FILL (buttons, Quique's tiles, the ribbon, the middle form), never text on paper. */
+:root{
+  --ink:#0C0C0B;   --ink2:#181816; --ln-d:#2B2B28;
+  --fg-d:#F4F4EF;  --mu-d:#A3A39B;
+  --paper:#F3F3EF; --card:#FFFFFF; --ln:#E3E3DD;
+  --fg:#121211;    --mu:#5B5B54;
+  --y:#FFD400;     --y-ink:#121211; --y-mu:#3D3A1E;
+  --font:'Hanken Grotesk',ui-sans-serif,system-ui,-apple-system,'Segoe UI',Roboto,Arial,sans-serif;
+  --display:'Anton','Arial Narrow',Impact,sans-serif;
+  --r-l:28px; --r-m:20px; --r-s:14px;
+  --sombra:0 1px 2px rgba(18,18,17,.05),0 18px 40px -18px rgba(18,18,17,.18);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--fg);font:500 16px/1.55 var(--font);overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--ink)}
+a{color:inherit;text-decoration:none}
+img,svg{max-width:100%}
+.env{max-width:1180px;margin:0 auto;padding-left:max(20px,env(safe-area-inset-left,0px));padding-right:max(20px,env(safe-area-inset-right,0px))}
+:focus-visible{outline:2px solid var(--y);outline-offset:3px;border-radius:8px}
+.claro :focus-visible{outline-color:var(--fg)}
+section{scroll-margin-top:80px}
+
+.eti{display:inline-flex;align-items:center;gap:8px;font:700 13px/1 var(--font);letter-spacing:.08em;text-transform:uppercase;margin:0}
+.eti b{display:inline-block;width:8px;height:8px;background:var(--y);transform:rotate(45deg);flex:none}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-transform:uppercase;text-wrap:balance;margin:0;letter-spacing:.005em}
+h1{font-size:clamp(46px,8.2vw,100px);line-height:1.14}
+h2{font-size:clamp(36px,5.2vw,62px);line-height:1.2}
+h3{font-size:clamp(28px,3.2vw,36px);line-height:1}
+/* Highlighted words: marked whole, like a highlighter pen, with a little margin. */
+h1 em,h2 em{font-style:normal;color:var(--y-ink);background:linear-gradient(transparent 13%,var(--y) 13%,var(--y) 93%,transparent 93%);padding:0 .14em;margin:0 -.04em;border-radius:.08em;box-decoration-break:clone;-webkit-box-decoration-break:clone}
+
+/* pills */
+.pill{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding:0 22px;border-radius:999px;font:700 16px/1 var(--font);transition:transform .15s ease,background .15s ease;cursor:pointer;border:0}
+.pill.y{background:var(--y);color:var(--y-ink)}
+.pill.y:hover{transform:translateY(-1px);background:#FFDD33}
+.pill.tinta{background:var(--fg);color:var(--paper)}
+.pill.tinta:hover{transform:translateY(-1px)}
+
+/* nav */
+.nav{position:sticky;top:env(safe-area-inset-top,0px);z-index:25;background:var(--ink);border-bottom:1px solid var(--ln-d);color:var(--fg-d)}
+.nav .env{display:flex;align-items:center;gap:16px;height:64px}
+.marca{display:flex;align-items:center;gap:12px;font:800 18px/1 var(--font);letter-spacing:-.02em}
+.marca img{width:38px;height:38px;border-radius:10px;object-fit:cover;display:block;background:var(--y)}
+.nav .pill{margin-left:auto;height:40px;padding:0 18px;font-size:15px;white-space:nowrap}
+@media (max-width:360px){.marca-txt{display:none}}
+
+/* the form, three times */
+.form{display:flex;flex-direction:column;gap:10px;position:relative;z-index:1;max-width:520px}
+.oculto{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.linea{display:flex;gap:8px;background:var(--card);border-radius:999px;padding:6px;box-shadow:0 18px 40px -20px rgba(18,18,17,.35)}
+.linea input{flex:1;min-width:0;border:0;background:transparent;color:var(--fg);font:500 16px/1 var(--font);padding:0 8px 0 18px;height:50px;border-radius:999px}
+.linea input::placeholder{color:var(--mu)}
+.linea input:focus{outline:none}
+.linea:focus-within{box-shadow:0 0 0 2px var(--y),0 18px 40px -20px rgba(18,18,17,.35)}
+.claro .linea:focus-within,.amarillo .linea:focus-within{box-shadow:0 0 0 2px var(--y-ink),0 18px 40px -20px rgba(18,18,17,.35)}
+.linea .pill{height:50px;padding:0 22px;font-size:16px;flex:none}
+.form small{font-size:13px;padding-left:18px}
+.form small a{text-decoration:underline;text-underline-offset:3px}
+.checks{display:flex;flex-wrap:wrap;gap:6px 18px;margin:2px 0 0;padding:0 0 0 18px;list-style:none;font:700 14px/1.2 var(--font)}
+.checks li{display:inline-flex;align-items:center;gap:7px}
+.checks li::before{content:"";width:16px;height:16px;flex:none;border-radius:50%;background:var(--y) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-4.9' fill='none' stroke='%23121211' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/16px no-repeat}
+.ok{margin:4px 0 0;padding:12px 18px;border-radius:var(--r-s);font:700 16px/1.4 var(--font)}
+.ok[data-tipo="bien"]{background:var(--fg);color:var(--fg-d)}
+.ok[data-tipo="mal"]{background:var(--card);color:var(--fg);box-shadow:inset 0 0 0 2px var(--fg)}
+.form.hecho .linea{opacity:.55;pointer-events:none}
+.oscuro .form small{color:var(--mu-d)}
+.oscuro .checks{color:var(--fg-d)}
+.oscuro .ok[data-tipo="bien"]{background:var(--y);color:var(--y-ink)}
+.amarillo .form small{color:var(--y-mu)}
+.amarillo .checks{color:var(--y-ink)}
+.amarillo .ok[data-tipo="bien"]{background:var(--fg);color:var(--fg-d)}
+.amarillo .checks li::before{background-color:var(--fg);background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16'%3E%3Cpath d='M4.5 8.2l2.3 2.3 4.7-4.9' fill='none' stroke='%23FFD400' stroke-width='2.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E")}
+
+/* hero */
+.heroe{background:var(--ink);color:var(--fg-d);overflow:hidden;position:relative}
+.heroe::after{content:"";position:absolute;width:780px;height:780px;right:-260px;top:-220px;border-radius:50%;background:radial-gradient(closest-side,rgba(255,212,0,.14),rgba(255,212,0,0));pointer-events:none}
+.heroe .env{display:grid;grid-template-columns:minmax(0,1.15fr) minmax(0,.85fr);gap:40px;align-items:center;padding-block:64px 72px;position:relative;z-index:1}
+.heroe .eti{color:var(--mu-d)}
+.heroe h1{margin:0 0 20px}
+.heroe .sub{font-size:19px;line-height:1.5;color:var(--mu-d);max-width:31em;margin:0 0 14px}
+.heroe .sub strong{color:var(--fg-d);font-weight:600}
+.frecuencia{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 24px;padding:0;list-style:none}
+.frecuencia li{font:700 14px/1 var(--font);color:var(--fg-d);background:var(--ink2);border:1px solid var(--ln-d);border-radius:999px;padding:9px 13px}
+.frecuencia li b{color:var(--y);font-weight:800}
+.q-heroe{display:block;width:100%;max-width:440px;justify-self:center;overflow:visible;background:var(--y);border-radius:var(--r-l)}
+
+/* ribbon */
+.cinta{background:var(--y);color:var(--y-ink);overflow:hidden;border-block:2px solid var(--fg)}
+.cinta .pista{display:flex;width:max-content;animation:cinta 76s linear infinite}
+.cinta ul{display:flex;align-items:center;margin:0;padding:0;list-style:none}
+.cinta li{display:flex;align-items:center;gap:22px;padding:0 0 0 22px;font:400 22px/1 var(--display);text-transform:uppercase;letter-spacing:.02em;white-space:nowrap;height:58px}
+.cinta li::after{content:"";width:9px;height:9px;background:var(--fg);transform:rotate(45deg)}
+@keyframes cinta{to{transform:translateX(-50%)}}
+
+/* metrics */
+.cifras{padding-block:64px 24px}
+.cifras ul{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));margin:0;padding:0;list-style:none;background:var(--ink);border-radius:var(--r-l);overflow:hidden;box-shadow:var(--sombra)}
+.cifras li{padding:34px 30px 30px;min-width:0;color:var(--fg-d);border-left:1px solid var(--ln-d)}
+.cifras li:first-child{border-left:0}
+.cifras b small{font-size:.5em;letter-spacing:.02em}
+.cifras b{display:block;font:400 clamp(44px,5.4vw,68px)/1 var(--display);letter-spacing:.01em;font-variant-numeric:tabular-nums;color:var(--y)}
+.cifras span{display:block;margin-top:12px;font:600 16px/1.3 var(--font);color:var(--mu-d)}
+.cifras p{margin:28px auto 0;max-width:34em;text-align:center;font-size:19px;color:var(--mu)}
+.cifras p strong{color:var(--fg)}
+
+/* pains */
+.dolores{padding-block:56px 32px}
+.dolores .cab{display:grid;grid-template-columns:minmax(0,1fr) 300px;gap:24px;align-items:end;margin-bottom:28px}
+.dolores .eti{color:var(--mu)}
+
+.q-sorpresa{width:100%;max-width:300px;justify-self:end;display:block;overflow:visible}
+.lista-d{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px;margin:0;padding:0;list-style:none}
+.lista-d li{background:var(--card);border-radius:var(--r-m);padding:26px 24px;box-shadow:var(--sombra);min-width:0}
+.lista-d .n{display:block;font:400 54px/1 var(--display);color:var(--fg);-webkit-text-stroke:0;margin-bottom:14px}
+.lista-d .n::after{content:"";display:block;width:36px;height:6px;background:var(--y);margin-top:10px}
+.lista-d p{margin:0;font-size:18px;line-height:1.45;color:var(--mu)}
+.lista-d p strong{color:var(--fg);font-weight:700}
+
+/* middle form */
+.medio{padding-block:24px 40px}
+.bloque{background:var(--y);color:var(--y-ink);border-radius:32px;padding:52px;display:grid;grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr) 140px;gap:36px;align-items:center;position:relative}
+.bloque .eti{color:var(--y-mu)}
+
+.bloque p{margin:16px 0 0;font-size:18px;color:var(--y-mu);max-width:30em}
+.bloque p strong{color:var(--y-ink)}
+.q-sobres{display:block;width:140px;height:182px;overflow:visible;pointer-events:none}
+
+/* benefits */
+.beneficios{padding-block:72px 24px}
+.beneficios .cab{max-width:760px;margin-bottom:36px}
+.beneficios .eti{color:var(--mu)}
+
+.beneficios .cab p{margin:16px 0 0;font-size:19px;color:var(--mu);max-width:34em}
+.punto{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;align-items:center;padding-block:28px;border-top:1px solid var(--ln)}
+.punto:nth-of-type(even) .escena{order:2}
+.escena{background:var(--y);border-radius:var(--r-l);aspect-ratio:600/360;overflow:hidden;position:relative;min-width:0}
+.escena svg{position:absolute;inset:0;width:100%;height:100%}
+.punto .tit{display:flex;align-items:center;gap:16px;margin-bottom:14px}
+.punto .tit .n{flex:none;display:grid;place-items:center;width:58px;height:58px;border-radius:var(--r-s);background:var(--y);color:var(--y-ink);font:400 34px/1 var(--display)}
+.punto h3{margin:0}
+.punto .lead{margin:0 0 8px;font:700 20px/1.35 var(--font);color:var(--fg)}
+.punto p{margin:0;font-size:18px;color:var(--mu);max-width:32em}
+.punto p strong{color:var(--fg)}
+.testi{margin:22px 0 0;background:var(--card);border-radius:var(--r-m);padding:18px 20px;box-shadow:var(--sombra);position:relative}
+.testi blockquote{margin:0;font:600 17px/1.45 var(--font);color:var(--fg)}
+.testi figcaption{margin-top:10px;font:600 14px/1.2 var(--font);color:var(--mu)}
+.testi figcaption b{color:var(--fg)}
+
+/* editions */
+.envios{padding-block:56px 24px}
+.envios .eti{color:var(--mu)}
+.envios h2{margin:0 0 28px}
+.dos{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.envios .intro{margin:-12px 0 24px;font-size:19px;color:var(--mu);max-width:34em}
+/* Subgrid: the three numbers, titles and texts start at the same height whatever wraps. */
+.tres{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.envio{background:var(--card);border-radius:var(--r-l);padding:26px 26px 28px;box-shadow:var(--sombra);display:grid;grid-row:span 3;grid-template-rows:subgrid;row-gap:10px;min-width:0}
+.envio .num{font:400 84px/.9 var(--display);color:var(--y);-webkit-text-stroke:3px var(--fg);paint-order:stroke fill}
+.envio .k{font:700 13px/1 var(--font);letter-spacing:.08em;text-transform:uppercase;color:var(--mu)}
+.envio h3{font-size:clamp(26px,2.4vw,30px);margin:0;align-self:start}
+.envio p{margin:0;color:var(--mu);font-size:17px;align-self:start}
+
+/* testimonials wall */
+/* Community: a still, regular grid; each row as tall as its longest card. */
+.gente{padding-block:48px 24px}
+.gente h2{margin:0 0 28px}
+.muro{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:16px}
+@media (max-width:1000px){.muro{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media (max-width:640px){.muro{grid-template-columns:minmax(0,1fr)}}
+.tc{position:relative;min-width:0;margin:0;padding:20px 22px 22px;border-radius:22px;display:flex;flex-direction:column;gap:14px;overflow:hidden}
+.tc::after{content:"\201C";position:absolute;top:10px;right:16px;font:400 92px/.8 var(--display);pointer-events:none}
+.tc figcaption{display:flex;align-items:center;gap:10px;font:800 16px/1.2 var(--font);position:relative;z-index:1}
+.tc .ini{flex:none;display:grid;place-items:center;width:40px;height:40px;border-radius:50%;font:400 21px/1 var(--display)}
+.tc .red{display:inline-flex;width:16px;height:16px;opacity:.75}
+.tc .red svg{width:16px;height:16px}
+.tc blockquote{margin:0;font:600 16px/1.5 var(--font);position:relative;z-index:1}
+.tc-y{background:var(--y);color:var(--y-ink)}
+.tc-y .ini{background:var(--fg);color:var(--y)}
+.tc-y::after{color:var(--fg);opacity:.14}
+.tc-n{background:var(--ink);color:var(--fg-d)}
+.tc-n .ini{background:transparent;color:var(--y);box-shadow:inset 0 0 0 2px var(--y)}
+.tc-n::after{color:var(--y);opacity:.9}
+.tc-b{background:var(--card);color:var(--fg);box-shadow:inset 0 0 0 2px var(--fg)}
+.tc-b .ini{background:var(--y);color:var(--y-ink)}
+.tc-b::after{color:var(--y)}
+@media (max-width:640px){.tc{padding:18px 18px 20px}.tc blockquote{font-size:15.5px}}
+}
+
+/* how it arrives */
+.llega-sec{padding-block:56px 24px;display:grid;grid-template-columns:minmax(0,520px) auto;justify-content:center;gap:96px;align-items:center}
+.llega-txt h2{margin:0 0 16px}
+.llega-txt p{margin:0 0 24px;font-size:19px;color:var(--mu);max-width:30em}
+/* "Así te llega": a phone where the newsletter arrives and reads itself. Everything is in em, so the same block
+   scales from the landing (font-size 14px) to the 1080x1920 story. The static state IS the first scene (the
+   notification on the lock screen); the loop only runs once .va is added, never with reduced motion. */
+.llega{--dist:0px;font-size:14px;width:22em;max-width:100%;justify-self:center}
+.llega-movil{background:#121211;border-radius:3.1em;padding:.55em;box-shadow:0 2.2em 4em -2em rgba(18,18,17,.55)}
+.llega-pantalla{position:relative;aspect-ratio:9/19.5;border-radius:2.55em;overflow:hidden;background:#0c0c0b radial-gradient(circle at 72% 18%,rgba(255,212,0,.42),rgba(255,212,0,0) 55%);isolation:isolate}
+.llega-pantalla::before{content:"";position:absolute;z-index:5;top:.7em;left:50%;width:6.4em;height:1.55em;margin-left:-3.2em;border-radius:1em;background:#121211}
+.llega-marca{position:absolute;left:0;right:0;bottom:12%;display:grid;place-items:center}
+.llega-marca img{width:5.4em;height:5.4em;border-radius:1.3em;opacity:.92}
+.llega-notif{position:absolute;z-index:3;top:3.3em;left:.75em;right:.75em;display:grid;grid-template-columns:2.6em minmax(0,1fr);gap:.75em;align-items:start;padding:.85em .95em;border-radius:1.35em;background:rgba(246,246,242,.94);color:#121211;box-shadow:0 .6em 1.6em -.6em rgba(0,0,0,.5);font-family:'Hanken Grotesk',ui-sans-serif,system-ui,sans-serif}
+.llega-notif img{width:2.6em;height:2.6em;border-radius:.65em;display:block}
+.llega-notif .fila{display:flex;justify-content:space-between;gap:.5em;font-size:.86em;line-height:1.2}
+.llega-notif .fila b{font-weight:800}
+.llega-notif .fila span{color:#6b6b64}
+.llega-notif strong{display:block;margin-top:.2em;font-size:.95em;line-height:1.25;font-weight:800}
+.llega-notif p{margin:.15em 0 0;font-size:.9em;line-height:1.3;color:#3d3d38}
+.llega-toque{position:absolute;z-index:4;top:5.4em;left:50%;width:3.2em;height:3.2em;margin-left:-1.6em;border-radius:50%;background:rgba(255,255,255,.75);opacity:0;pointer-events:none}
+.llega-correo{position:absolute;z-index:2;inset:0;background:#F3F3EF;opacity:0;clip-path:inset(3.3em .75em calc(100% - 9.4em) .75em round 1.35em)}
+.llega-barra{position:absolute;top:0;left:0;right:0;height:5.6em;padding:2.75em 1em 0;display:flex;align-items:center;gap:.7em;background:#fff;border-bottom:1px solid #e3e3dd;font-family:'Hanken Grotesk',ui-sans-serif,system-ui,sans-serif;color:#121211}
+.llega-barra i{font-style:normal;font-size:1.7em;line-height:1;margin-top:-.15em;color:#5b5b54}
+.llega-barra img{width:2.1em;height:2.1em;border-radius:50%;display:block}
+.llega-barra b{display:block;font-size:.95em;font-weight:800;line-height:1.1}
+.llega-barra span{display:block;font-size:.8em;color:#6b6b64;line-height:1.2}
+.llega-scroll{position:absolute;top:5.6em;left:0;right:0;bottom:0;overflow:hidden}
+.llega-scroll img{display:block;width:100%;height:auto;transform:translateY(0)}
+.llega.va .llega-notif{animation:ll-notif 15s infinite}
+.llega.va .llega-toque{animation:ll-toque 15s infinite}
+.llega.va .llega-correo{animation:ll-correo 15s infinite}
+.llega.va .llega-scroll img{animation:ll-scroll 15s infinite}
+@keyframes ll-notif{
+  0%,4%{transform:translateY(-160%);opacity:0;animation-timing-function:cubic-bezier(.2,.9,.3,1.15)}
+  9%{transform:translateY(0);opacity:1}
+  17%{transform:scale(1)}
+  18.5%{transform:scale(.95)}
+  20%{transform:scale(1);opacity:1}
+  22%,100%{transform:scale(1);opacity:0}}
+@keyframes ll-toque{0%,17%{opacity:0;transform:scale(.3)}18%{opacity:.8;transform:scale(.6)}21%{opacity:0;transform:scale(2.4)}100%{opacity:0;transform:scale(2.4)}}
+@keyframes ll-correo{
+  0%,19.5%{opacity:0;clip-path:inset(3.3em .75em calc(100% - 9.4em) .75em round 1.35em)}
+  21%{opacity:1;clip-path:inset(3.3em .75em calc(100% - 9.4em) .75em round 1.35em);animation-timing-function:cubic-bezier(.3,0,.2,1)}
+  26%,93%{opacity:1;clip-path:inset(0 0 0 0 round 0)}
+  97%,100%{opacity:0;clip-path:inset(0 0 0 0 round 0)}}
+@keyframes ll-scroll{
+  0%,30%{transform:translateY(0);animation-timing-function:ease-in-out}
+  42%,48%{transform:translateY(calc(var(--dist) * -.24));animation-timing-function:ease-in-out}
+  62%,68%{transform:translateY(calc(var(--dist) * -.56));animation-timing-function:ease-in-out}
+  86%,100%{transform:translateY(calc(var(--dist) * -1))}}
+
+/* who writes */
+.quien{padding-block:56px 24px}
+.quien-caja{background:var(--card);border-radius:var(--r-l);box-shadow:var(--sombra);padding:32px;display:grid;grid-template-columns:200px minmax(0,1fr);gap:32px;align-items:center}
+.q-hola{width:100%;max-width:200px;display:block;background:var(--y);border-radius:var(--r-m);overflow:visible}
+.quien .eti{color:var(--mu)}
+.quien h2{margin:0 0 12px}
+.quien p:not(.eti){margin:0;font-size:19px;color:var(--mu);max-width:36em}
+
+/* faq */
+.faq{padding-block:56px 24px}
+.faq-cab{display:grid;grid-template-columns:minmax(0,1fr) 220px;gap:24px;align-items:end;margin-bottom:24px}
+.faq .eti{color:var(--mu)}
+
+.q-duda{width:100%;max-width:220px;justify-self:end;display:block;overflow:visible}
+.preguntas{display:flex;flex-direction:column;gap:10px;max-width:860px}
+.preguntas details{background:var(--card);border-radius:var(--r-m);box-shadow:var(--sombra)}
+.preguntas summary{list-style:none;cursor:pointer;display:grid;grid-template-columns:minmax(0,1fr) 32px;align-items:center;gap:16px;padding:18px 22px;font:700 18px/1.3 var(--font)}
+.preguntas summary::-webkit-details-marker{display:none}
+/* The +/x is drawn on a 32 px grid with its centre on the circle's centre, so nothing is rotated or sub-pixel. */
+.preguntas summary::after{content:"";display:block;width:32px;height:32px;border-radius:50%;background:var(--y) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M16 9v14M9 16h14' stroke='%23121211' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E") center/32px 32px no-repeat}
+.preguntas details[open] summary::after{background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cpath d='M11 11l10 10M21 11l-10 10' stroke='%23121211' stroke-width='2.6' stroke-linecap='round'/%3E%3C/svg%3E")}
+.preguntas details p{margin:0;padding:0 22px 20px;font-size:17px;color:var(--mu);max-width:44em}
+.preguntas details p a{text-decoration:underline;text-underline-offset:3px;color:var(--fg)}
+
+/* last form */
+.final-sec{padding-block:56px 72px}
+.bloque.final{grid-template-columns:minmax(0,1fr) 260px}
+.bloque.final p{margin:12px 0 22px}
+.q-adios{width:100%;max-width:260px;display:block;overflow:visible;justify-self:center}
+
+/* footer */
+.pie{background:var(--ink);color:var(--mu-d);border-top:1px solid var(--ln-d)}
+.pie .env{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:center;padding-block:40px 56px}
+.pie img{width:72px;height:72px;border-radius:14px;display:block}
+.pie .lema{flex:1 1 260px;margin:0;font-size:15px}
+.pie nav{display:flex;flex-wrap:wrap;gap:10px 22px}
+.pie nav a{font:600 15px/1 var(--font);color:var(--fg-d)}
+.pie nav a:hover{color:var(--y)}
+
+@media (max-width:900px){
+  .heroe .env{grid-template-columns:minmax(0,1fr);gap:8px;padding-block:40px 44px}
+  .q-heroe{max-width:280px;margin-top:12px}
+  .cifras ul{grid-template-columns:minmax(0,1fr)}
+  .cifras li{display:flex;align-items:center;justify-content:space-between;gap:16px;padding:22px 22px;border-left:0;border-top:1px solid var(--ln-d)}
+  .cifras li:first-child{border-top:0}
+  .cifras b{font-size:clamp(38px,11vw,50px)}
+  .cifras span{margin-top:0;text-align:right;max-width:11em}
+  .dolores .cab{grid-template-columns:minmax(0,1fr) 120px;gap:12px}
+  .lista-d{grid-template-columns:minmax(0,1fr);gap:12px}
+  .bloque{grid-template-columns:minmax(0,1fr);padding:32px 20px 32px;border-radius:var(--r-l);gap:24px}
+  .bloque h2{padding-right:80px}
+  .q-sobres{position:absolute;width:76px;height:100px;right:14px;top:22px}
+  .punto{grid-template-columns:minmax(0,1fr);gap:20px;padding-block:28px}
+  .punto:nth-of-type(even) .escena{order:0}
+  .dos,.tres{grid-template-columns:minmax(0,1fr)}
+  .llega-sec{grid-template-columns:minmax(0,1fr);gap:28px}
+  .llega{font-size:13px}
+  .quien-caja{grid-template-columns:110px minmax(0,1fr);gap:20px;padding:24px 20px;align-items:start}
+  .faq-cab{grid-template-columns:minmax(0,1fr) 110px}
+  .bloque.final{grid-template-columns:minmax(0,1fr)}
+  .bloque.final h2{padding-right:0}
+  .q-adios{max-width:200px;order:-1}
+}
+@media (max-width:420px){
+  .quien-caja{grid-template-columns:minmax(0,1fr)}
+  .q-hola{max-width:150px}
+  .linea{flex-direction:column;border-radius:var(--r-m);padding:6px}
+  .linea input{height:50px;padding:0 14px}
+  .linea .pill{width:100%}
+  .form small,.checks{padding-left:4px}
+  .cinta li{font-size:19px;height:52px}
+  .envio{padding:24px 20px}
+  .dolores .cab{grid-template-columns:minmax(0,1fr) 96px}
+}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+</style>
+</head>
+<body>
+<header class="nav">
+  <div class="env">
+    <a class="marca" href="/" aria-label="Qué Cambia, inicio"><img src="/assets/que-cambia-icono.png" alt="" width="38" height="38"><span class="marca-txt">Qué Cambia</span></a>
+    <a class="pill y" href="#apuntate">Apúntate gratis</a>
+  </div>
+</header>
+
+<main>
+  <section class="heroe oscuro" id="apuntate">
+    <div class="env">
+      <div>
+        <h1 id="titular">¿Qué cambia <em>para ti?</em></h1>
+        <p class="sub">Lo que pasa en España y en el mundo, y cómo te afecta: <strong>tu dinero, tu día a día y tus derechos.</strong> <span data-freq="periodo">Dos veces por semana</span> en tu correo, sin bandos.</p>
+        <ul class="frecuencia" aria-label="Cómo es el boletín">
+          <li><b data-freq="periodo">Dos veces por semana</b></li>
+          <li><span data-freq="lectura">5 minutos</span> de lectura</li>
+        </ul>
+        <form class="form" data-place="hero" novalidate>
+          <label class="oculto" for="correo-hero">Tu correo</label>
+          <input class="oculto" name="web" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="ts" value="">
+          <div class="linea">
+            <input id="correo-hero" name="correo" type="email" autocomplete="email" inputmode="email" placeholder="nombre@correo.com" required>
+            <button class="pill y" type="submit">Apuntarme gratis</button>
+          </div>
+          <small>Al apuntarte aceptas la <a href="https://quecambia.es/privacidad">privacidad</a>.</small>
+          <ul class="checks"><li>Gratis</li><li>Sin spam</li><li>Baja en 1 clic</li></ul>
+          <p class="ok" role="status" hidden></p>
+        </form>
+      </div>
+      <svg class="q-heroe" id="q-heroe" viewBox="0 0 520 560" aria-hidden="true"></svg>
+    </div>
+  </section>
+
+  <div class="cinta" aria-hidden="true">
+    <div class="pista">
+      <ul><li data-freq="periodo">Dos veces por semana</li><li><span><span data-freq="lectura">5 minutos</span> de lectura</span></li><li>Qué ha cambiado, aquí o fuera</li><li>Cómo te afecta a ti</li><li>Qué hacer y hasta cuándo</li><li>Contrastado</li><li>Sin bandos</li></ul>
+      <ul><li data-freq="periodo">Dos veces por semana</li><li><span><span data-freq="lectura">5 minutos</span> de lectura</span></li><li>Qué ha cambiado, aquí o fuera</li><li>Cómo te afecta a ti</li><li>Qué hacer y hasta cuándo</li><li>Contrastado</li><li>Sin bandos</li></ul>
+      <ul><li data-freq="periodo">Dos veces por semana</li><li><span><span data-freq="lectura">5 minutos</span> de lectura</span></li><li>Qué ha cambiado, aquí o fuera</li><li>Cómo te afecta a ti</li><li>Qué hacer y hasta cuándo</li><li>Contrastado</li><li>Sin bandos</li></ul>
+      <ul><li data-freq="periodo">Dos veces por semana</li><li><span><span data-freq="lectura">5 minutos</span> de lectura</span></li><li>Qué ha cambiado, aquí o fuera</li><li>Cómo te afecta a ti</li><li>Qué hacer y hasta cuándo</li><li>Contrastado</li><li>Sin bandos</li></ul>
+    </div>
+  </div>
+
+  <section class="cifras env claro" aria-label="Qué Cambia en cifras">
+    <ul>
+      <li><b data-metric="seguidores">+180.000</b><span>Seguidores</span></li>
+      <li><b data-metric="vistas_total">+56 <small>millones</small></b><span>De vistas</span></li>
+      <li><b data-metric="vistas_mes">+35 <small>millones</small></b><span>Vistas cada mes</span></li>
+    </ul>
+    <p>Cada semana pasa algo, aquí o fuera, que acaba en tu bolsillo o en tu agenda. <strong>Yo te cuento qué cambia para ti, sin opinar.</strong></p>
+  </section>
+
+  <section class="gente env claro">
+    <h2>Lo que dice <em>la comunidad.</em></h2>
+    <div class="muro">
+      <figure class="tc tc-y" data-testimonio="1"><figcaption><span class="ini" aria-hidden="true">I</span><b>Ilyas</b><span class="red" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg><span class="oculto">, en Instagram</span></span></figcaption><blockquote>Me gusta mucho esta cuenta: solo datos, y cada uno desarrolla su opinión en función de sus propios criterios. Muchas gracias.</blockquote></figure>
+      <figure class="tc tc-n" data-testimonio="3"><figcaption><span class="ini" aria-hidden="true">A</span><b>Antonio</b><span class="red" title="TikTok"><svg viewBox="0 0 24 24" aria-hidden="true" fill="currentColor"><path d="M16.6 2.5c.35 2.3 1.75 3.9 4.15 4.1v3.4c-1.55.05-2.95-.4-4.15-1.25v6.55a6.05 6.05 0 1 1-6.05-6.05c.33 0 .65.03.97.08v3.5a2.62 2.62 0 1 0 1.73 2.47V2.5h3.35z"/></svg><span class="oculto">, en TikTok</span></span></figcaption><blockquote>Te escribo para agradecerte la información que das, cómo la muestras y cómo eres capaz de mantenerte neutral y ser objetivo. Muchas gracias por crear esta cuenta y hacer lo que haces.</blockquote></figure>
+      <figure class="tc tc-b" data-testimonio="7"><figcaption><span class="ini" aria-hidden="true">G</span><b>guayabito</b><span class="red" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg><span class="oculto">, en Instagram</span></span></figcaption><blockquote>Muchas gracias por tomarte el tiempo de investigar acerca de lo ocurrido y hablar desde un punto de vista neutral.</blockquote></figure>
+      <figure class="tc tc-y" data-testimonio="5"><figcaption><span class="ini" aria-hidden="true">S</span><b>Una seguidora</b><span class="red" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg><span class="oculto">, en Instagram</span></span></figcaption><blockquote>Tengo un joven de 18 años y llevaba días intentando explicarle mil cosas para que pudiera ser crítico. Nos has ayudado mucho. Mil gracias.</blockquote></figure>
+      <figure class="tc tc-n" data-testimonio="2"><figcaption><span class="ini" aria-hidden="true">D</span><b>Diego</b><span class="red" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg><span class="oculto">, en Instagram</span></span></figcaption><blockquote>Gracias por informar así, ya hacían falta medios neutros.</blockquote></figure>
+      <figure class="tc tc-b" data-testimonio="8"><figcaption><span class="ini" aria-hidden="true">F</span><b>Félix</b><span class="red" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg><span class="oculto">, en Instagram</span></span></figcaption><blockquote>Muy bien explicado, con claridad y precisión.</blockquote></figure>
+      <figure class="tc tc-y" data-testimonio="6"><figcaption><span class="ini" aria-hidden="true">M</span><b>Mateo</b><span class="red" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg><span class="oculto">, en Instagram</span></span></figcaption><blockquote>Sigue con tu trabajo y tus propósitos de explicar de manera tangible, imparcial y, sobre todo, verídica.</blockquote></figure>
+      <figure class="tc tc-n" data-testimonio="4"><figcaption><span class="ini" aria-hidden="true">R</span><b>Ramón</b><span class="red" title="Instagram"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="2.2"><rect x="3" y="3" width="18" height="18" rx="5.5"/><circle cx="12" cy="12" r="4.2"/><circle cx="17.6" cy="6.4" r="1.3" fill="currentColor" stroke="none"/></svg><span class="oculto">, en Instagram</span></span></figcaption><blockquote>Gracias por el trabajo que haces en estos tiempos tan polarizados. Todos mis amigos te siguen.</blockquote></figure>
+    </div>
+  </section>
+
+  <section class="dolores env claro">
+    <div class="cab">
+      <div>
+        <h2>Te enteras <em>cuando ya</em> lo estás pagando.</h2>
+      </div>
+      <svg class="q-sorpresa" id="q-sorpresa" viewBox="0 0 420 360" aria-hidden="true"></svg>
+    </div>
+    <ol class="lista-d">
+      <li><span class="n">01</span><p>Si te enteras de un cambio <strong>cuando llega la factura</strong>, o cuando el plazo para pedir algo ya ha pasado.</p></li>
+      <li><span class="n">02</span><p>Si lo que pasa fuera <strong>te parece lejano hasta que lo pagas tú</strong>: unos aranceles, una guerra, el precio de la luz o de la gasolina.</p></li>
+      <li><span class="n">03</span><p>Si cada medio te lo cuenta <strong>desde su bando</strong> y acabas sin saber qué es dato y qué es opinión.</p></li>
+    </ol>
+  </section>
+
+  <section class="medio env amarillo claro" id="boletin">
+    <div class="bloque">
+      <div>
+        <h2>Entonces esto te va a gustar.</h2>
+        <p>El boletín de Qué Cambia: <strong data-freq="frase">dos veces por semana</strong>, en <span data-freq="lectura">5 minutos</span> y sin bandos.</p>
+      </div>
+      <form class="form" data-place="middle" novalidate>
+        <label class="oculto" for="correo-medio">Tu correo</label>
+        <input class="oculto" name="web" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+        <input type="hidden" name="ts" value="">
+        <div class="linea">
+          <input id="correo-medio" name="correo" type="email" autocomplete="email" inputmode="email" placeholder="nombre@correo.com" required>
+          <button class="pill tinta" type="submit">Me apunto</button>
+        </div>
+        <small>Al apuntarte aceptas la <a href="https://quecambia.es/privacidad">privacidad</a>.</small>
+        <ul class="checks"><li>Gratis</li><li>Sin spam</li><li>Baja en 1 clic</li></ul>
+        <p class="ok" role="status" hidden></p>
+      </form>
+      <svg class="q-sobres" id="q-sobres" viewBox="40 -40 480 650" aria-hidden="true"></svg>
+    </div>
+  </section>
+
+  <section class="beneficios env claro">
+    <div class="cab">
+      <h2>Lo que pasa, aquí o fuera, <em>y cómo te afecta.</em></h2>
+    </div>
+
+    <article class="punto">
+      <div class="escena"><svg id="q-mundo" viewBox="0 0 600 360" aria-hidden="true"></svg></div>
+      <div>
+        <div class="tit"><span class="n">1</span><h3>Qué ha cambiado, aquí o fuera</h3></div>
+        <p>Lo que pasa en España y fuera, con una sola pregunta: ¿esto te afecta? Unos aranceles, una ayuda nueva o una guerra que sube el precio de algo que compras. <strong>Si te afecta, entra.</strong></p>
+      </div>
+    </article>
+
+    <article class="punto">
+      <div class="escena"><svg id="q-ati" viewBox="0 0 600 360" aria-hidden="true"></svg></div>
+      <div>
+        <div class="tit"><span class="n">2</span><h3>Cómo te afecta a ti</h3></div>
+        <p>No a todos nos afecta igual: <strong>si trabajas, si alquilas, si tienes hijos, si eres autónomo o si cobras una pensión,</strong> lo notas distinto. Te digo en qué.</p>
+      </div>
+    </article>
+
+    <article class="punto">
+      <div class="escena"><svg id="q-plazo" viewBox="0 0 600 360" aria-hidden="true"></svg></div>
+      <div>
+        <div class="tit"><span class="n">3</span><h3>Qué hacer y hasta cuándo</h3></div>
+        <p>Te digo qué puedes hacer y hasta cuándo tienes, <strong>para que no se te pase ningún plazo.</strong></p>
+      </div>
+    </article>
+
+    <article class="punto">
+      <div class="escena"><svg id="q-bandos" viewBox="0 0 600 360" aria-hidden="true"></svg></div>
+      <div>
+        <div class="tit"><span class="n">4</span><h3>Sin bandos</h3></div>
+        <p>Contrasto cada dato y te cuento lo que pasa sin opinar, <strong>para que decidas tú.</strong> Informados decidimos mejor.</p>
+      </div>
+    </article>
+  </section>
+
+  <section class="envios env claro">
+    <h2><span data-freq="periodo">Dos veces por semana</span>, en <span data-freq="lectura">5 minutos</span>.</h2>
+    <p class="intro">Un correo corto, siempre con las mismas tres partes. Y siempre sin bandos.</p>
+    <div class="tres">
+      <article class="envio"><span class="num" aria-hidden="true">1</span><h3>Lo que cambia, aquí o fuera</h3><p>Lo que ha pasado en España y en el mundo que llega a tu vida.</p></article>
+      <article class="envio"><span class="num" aria-hidden="true">2</span><h3>A quién le afecta</h3><p>Según tu caso, y en qué lo vas a notar.</p></article>
+      <article class="envio"><span class="num" aria-hidden="true">3</span><h3>Qué hacer y hasta cuándo</h3><p>Los pasos y los plazos, con tiempo para hacerlo.</p></article>
+    </div>
+  </section>
+
+  <section class="llega-sec env claro">
+    <div class="llega-txt">
+      <h2>Así <em>te llega.</em></h2>
+      <p>Un correo corto, con Quique, que se lee en <span data-freq="lectura">5 minutos</span>.</p>
+      <a class="pill tinta" href="#apuntate">Quiero recibirlo</a>
+    </div>
+    <div class="llega" id="llega" role="img" aria-label="Animación: llega la notificación del boletín de Qué Cambia, se abre el correo y se lee solo.">
+      <div class="llega-movil"><div class="llega-pantalla">
+        <div class="llega-marca"><img src="/assets/que-cambia-icono.png" alt=""></div>
+        <div class="llega-notif"><img src="/assets/que-cambia-icono.png" alt=""><div><div class="fila"><b>Qué Cambia</b><span>ahora</span></div><strong>Lo que te cambia, aquí o fuera</strong><p>Te lo cuento sin opinar.</p></div></div>
+        <span class="llega-toque"></span>
+        <div class="llega-correo">
+          <div class="llega-barra"><i>‹</i><img src="/assets/que-cambia-icono.png" alt=""><div><b>Qué Cambia</b><span>para ti</span></div></div>
+          <div class="llega-scroll"><img src="/assets/boletin/correo-anim.jpg" alt="" width="975" height="1900" decoding="async"></div>
+        </div>
+      </div></div>
+    </div>
+  </section>
+
+
+  <section class="quien env claro">
+    <div class="quien-caja">
+      <svg class="q-hola" id="q-hola" viewBox="0 0 300 300" aria-hidden="true"></svg>
+      <div>
+        <h2>Soy Andrés, <em>quien te escribe.</em></h2>
+        <p>Hago Qué Cambia con Quique, el personaje de todos los vídeos. Busco lo que cambia, aquí o fuera, lo contrasto y te lo cuento claro y sin rodeos, para que sepas cómo te afecta y qué puedes hacer.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="faq env claro">
+    <div class="faq-cab">
+      <div>
+        <h2>Lo que me suelen preguntar.</h2>
+      </div>
+      <svg class="q-duda" id="q-duda" viewBox="0 0 360 300" aria-hidden="true"></svg>
+    </div>
+    <div class="preguntas">
+      <details><summary>¿Cuánto cuesta?</summary><p>Nada. El boletín es gratis.</p></details>
+      <details><summary>¿Cada cuánto llega?</summary><p><span data-freq="periodo">Dos veces por semana</span>, un correo que se lee en <span data-freq="lectura">5 minutos</span>. Sin spam y sin correos de relleno.</p></details>
+      <details><summary>¿Es de algún partido?</summary><p>No. No trabajo para ningún partido. Cuento lo que proponen y hacen todos, con el mismo trato, para que decidas tú.</p></details>
+      <details><summary>¿Me puedo dar de baja?</summary><p>Sí, cuando quieras, con un clic en el enlace que va al final de cada correo.</p></details>
+      <details><summary>¿Qué hacéis con mi correo?</summary><p>Solo lo uso para enviarte el boletín. No se lo cedo a nadie, tampoco a los patrocinadores. Lo tienes todo en la <a href="https://quecambia.es/privacidad">privacidad</a>.</p></details>
+    </div>
+  </section>
+
+  <section class="final-sec env amarillo claro">
+    <div class="bloque final">
+      <div>
+        <h2>Yo te cuento qué cambia para ti.</h2>
+        <p>Déjame tu correo y te lo mando <span data-freq="frase">dos veces por semana</span>.</p>
+        <form class="form" data-place="end" novalidate>
+          <label class="oculto" for="correo-fin">Tu correo</label>
+          <input class="oculto" name="web" type="text" tabindex="-1" autocomplete="off" aria-hidden="true">
+          <input type="hidden" name="ts" value="">
+          <div class="linea">
+            <input id="correo-fin" name="correo" type="email" autocomplete="email" inputmode="email" placeholder="nombre@correo.com" required>
+            <button class="pill tinta" type="submit">Quiero el boletín</button>
+          </div>
+          <small>Al apuntarte aceptas la <a href="https://quecambia.es/privacidad">privacidad</a>.</small>
+          <ul class="checks"><li>Gratis</li><li>Sin spam</li><li>Baja en 1 clic</li></ul>
+          <p class="ok" role="status" hidden></p>
+        </form>
+      </div>
+      <svg class="q-adios" id="q-adios" viewBox="0 0 420 470" aria-hidden="true"></svg>
+    </div>
+  </section>
+</main>
+
+<footer class="pie">
+  <div class="env">
+    <img src="/assets/boletin/que-cambia-logo.png" alt="Qué Cambia" width="72" height="72">
+    <p class="lema">Lo que pasa y cómo te afecta, sin bandos.</p>
+    <nav aria-label="Pie">
+      <a href="/">Inicio</a>
+      <a href="https://quecambia.es/guias">Guías</a>
+      <a href="https://quecambia.es/apoya">Apoya</a>
+      <a href="https://quecambia.es/privacidad">Privacidad</a>
+    </nav>
+  </div>
+</footer>
+
+<script>
+(function(){
+  // THE frequency of the newsletter, in one place. Every [data-freq] on the page reads from here; the text written
+  // inside those elements is only the fallback for a visitor without JS.
+  const FREQ={
+    periodo:'Dos veces por semana',   // at the start of a line or a pill
+    frase:'dos veces por semana',     // inside a sentence
+    lectura:'5 minutos'
+  };
+  document.querySelectorAll('[data-freq]').forEach(el=>{const v=FREQ[el.dataset.freq];if(v)el.textContent=v});
+
+  // Umami is cookieless; it may be blocked or not loaded yet, so every call is optional.
+  const evento=(n,d)=>{try{window.umami&&umami.track(n,d)}catch(_){}};
+  addEventListener('load',()=>setTimeout(()=>evento('nl_view'),300));
+
+  // The three forms: same fields, checks and endpoint as the home page's newsletter form.
+  const ahora=Date.now();
+  document.querySelectorAll('form[data-place]').forEach(f=>{
+    const place=f.dataset.place, c=f.querySelector('input[name="correo"]'), ok=f.querySelector('.ok'), b=f.querySelector('button');
+    f.querySelector('input[name="ts"]').value=ahora;
+    const di=(tipo,txt)=>{ok.hidden=false;ok.dataset.tipo=tipo;ok.textContent=txt};
+    f.addEventListener('submit',e=>{
+      e.preventDefault();
+      if(!/^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/.test(c.value.trim())){evento('nl_error',{place,reason:'invalid'});di('mal','Revisa el correo: falta algo, como la @ o el .com');c.focus();return}
+      evento('nl_signup',{place});
+      b.disabled=true;
+      fetch('https://quecambia-boletin.netlify.app/.netlify/functions/apuntar',{method:'POST',headers:{accept:'application/json'},body:new FormData(f)})
+        .then(r=>r.json()).then(j=>{
+          if(j.ok){f.classList.add('hecho');di('bien','Hecho, ya estás dentro. Te llegará el próximo boletín.')}
+          else{b.disabled=false;evento('nl_error',{place,reason:'server'});di('mal','No ha salido. Prueba otra vez en un momento.')}
+        })
+        .catch(()=>{b.disabled=false;evento('nl_error',{place,reason:'network'});di('mal','No ha salido. Prueba otra vez en un momento.')});
+    });
+  });
+
+  // Quique, with the geometry of que-cambia/brand/quique-poses.html, the same drawing the home page animates.
+  const K='#121211',W='#fff',Y='#FFD400',ANTON='Anton,Arial Narrow,Impact,sans-serif';
+  const quieto=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  const mezcla=(a,b,k)=>[a[0]+(b[0]-a[0])*k,a[1]+(b[1]-a[1])*k];
+  const eio=x=>x<=0?0:x>=1?1:x<.5?4*x*x*x:1-Math.pow(-2*x+2,3)/2;
+  const hump=(u,a,b,r)=>u<a||u>b?0:u<a+r?eio((u-a)/r):u>b-r?1-eio((u-(b-r))/r):1;
+  const PI2=Math.PI*2;
+  function quique(o){
+    const {la=[160,372],ra=[340,372],px=0,py=0,er=24,brow=0,dy=0,lean=0,feliz=0}=o;
+    const eye=x=>feliz>.5
+      ?`<path d="M${x-17},103 Q${x},76 ${x+17},103" stroke="${W}" stroke-width="12" fill="none" stroke-linecap="round"/>`
+      :`<circle cx="${x}" cy="95" r="${er}" fill="${W}"/><circle cx="${(x+px).toFixed(1)}" cy="${(95+py).toFixed(1)}" r="${er*0.42}" fill="${K}"/>`;
+    const br=x=>`<line x1="${x-22}" y1="${22-brow}" x2="${x+22}" y2="${22-brow}" stroke="${K}" stroke-width="11" stroke-linecap="round"/>`;
+    const pierna=(hx,fx)=>`<path d="M${hx},498 L${fx},572" stroke="${K}" stroke-width="15" stroke-linecap="round"/><ellipse cx="${fx+(fx<250?-14:14)}" cy="578" rx="30" ry="13" fill="${K}"/>`;
+    return `<g transform="rotate(${lean} 250 578)"><g transform="translate(0 ${dy.toFixed(2)})">
+      <path d="M150,170 C150,60 350,60 350,170 C350,255 250,245 250,345" fill="none" stroke="${K}" stroke-width="100" stroke-linejoin="round"/>
+      ${eye(206)}${eye(294)}${br(206)}${br(294)}
+      <path d="M215,300 Q${(215+la[0])/2-10},${(300+la[1])/2+18} ${la[0]},${la[1]}" fill="none" stroke="${K}" stroke-width="15" stroke-linecap="round"/>
+      <path d="M285,300 Q${(285+ra[0])/2+10},${(300+ra[1])/2+18} ${ra[0]},${ra[1]}" fill="none" stroke="${K}" stroke-width="15" stroke-linecap="round"/>
+      <circle cx="250" cy="455" r="52" fill="${K}"/></g>${pierna(232,222)}${pierna(268,278)}</g>`;
+  }
+  const mano=(p,dy=0)=>`<circle cx="${p[0].toFixed(1)}" cy="${(p[1]+dy).toFixed(1)}" r="15" fill="${K}"/>`;
+  const sobre=(x,y,s,rot,op)=>`<g transform="translate(${x.toFixed(1)} ${y.toFixed(1)}) rotate(${rot.toFixed(1)}) scale(${s.toFixed(3)})" opacity="${op.toFixed(3)}"><rect x="-62" y="-42" width="124" height="84" rx="10" fill="${W}" stroke="${K}" stroke-width="11"/><path d="M-54,-32 L0,8 L54,-32" fill="none" stroke="${K}" stroke-width="11" stroke-linejoin="round" stroke-linecap="round"/></g>`;
+  // A Quique placed in a scene: local drawing coordinates scaled by s, feet on the line `base`.
+  const escena=(X,B,s)=>({
+    pon:cont=>`<g transform="translate(${X.toFixed(1)} ${(B-592*s).toFixed(1)}) scale(${s})">${cont}</g>`,
+    local:p=>[(p[0]-X)/s,(p[1]-(B-592*s))/s],
+    global:p=>[X+p[0]*s,B-592*s+p[1]*s]
+  });
+  const respira=t=>Math.sin(t*PI2/2.8)*4;
+  const mirar=(desde,hacia,mx=11,my=9)=>{const dx=hacia[0]-desde[0],dy=hacia[1]-desde[1],m=Math.hypot(dx,dy)||1;return [dx/m*mx,dy/m*my]};
+
+  // Where the pointer is, so the big Quiques can look at it.
+  let puntero=null;
+  addEventListener('pointermove',e=>{puntero=[e.clientX,e.clientY]},{passive:true});
+  function ojosAlPuntero(svg,ojo,vb,porDefecto){
+    if(!puntero)return porDefecto;
+    const r=svg.getBoundingClientRect(), k=r.width/vb;
+    return mirar([r.left+ojo[0]*k,r.top+ojo[1]*k],puntero);
+  }
+
+  // Hero: Quique says the slogan and waves at you.
+  const svgHeroe=document.getElementById('q-heroe');
+  function heroe(t){
+    const E=escena(30,548,.7), u=t%5.2;
+    const a=hump(u,.6,3,.45), ag=Math.sin(t*PI2*2.2)*16*a;
+    const la=[160,380], ra=[340+90*a+ag,372-200*a];
+    const ojos=ojosAlPuntero(svgHeroe,E.global([250,95]),520,[-7,3]);
+    const pop=eio(Math.min(1,t/.6)), bob=Math.sin(t*PI2/3.4)*3;
+    const bocadillo=`<g transform="translate(384 ${(76+bob).toFixed(1)}) scale(${(pop*.86).toFixed(3)})">
+      <path d="M-118,-64 h236 a22,22 0 0 1 22,22 v84 a22,22 0 0 1 -22,22 h-150 l-44,40 l8,-40 h-50 a22,22 0 0 1 -22,-22 v-84 a22,22 0 0 1 22,-22 Z" fill="${W}" stroke="${K}" stroke-width="9" stroke-linejoin="round"/>
+      <text x="0" y="-8" text-anchor="middle" font-family="${ANTON}" font-size="40" fill="${K}">TE LO CUENTO</text>
+      <text x="0" y="44" text-anchor="middle" font-family="${ANTON}" font-size="40" fill="${K}">SIN OPINAR</text></g>`;
+    return E.pon(quique({la,ra,px:ojos[0],py:ojos[1],feliz:a>.55&&a<.98?1:0,brow:8*a,dy:respira(t)})+mano(la)+mano(ra))+bocadillo;
+  }
+
+  // Pains: a bill drops in and Quique jumps.
+  function sorpresa(t){
+    const E=escena(-8,350,.55), u=t%4.4;
+    const caer=eio(Math.min(1,u/.9)), susto=hump(u,.85,3.6,.25), fuera=u>3.6?eio((u-3.6)/.6):0;
+    const fx=318, fy=-90+300*caer, rot=-30+22*caer;
+    const salto=u>.85&&u<1.25?-Math.sin((u-.85)/.4*Math.PI)*18:0;
+    const la=mezcla([160,378],[96,250],susto), ra=mezcla([340,378],[404,250],susto);
+    const ojos=susto>.1?[0,-2]:mirar(E.global([250,95]),[fx,fy]);
+    const factura=`<g transform="translate(${fx} ${fy.toFixed(1)}) rotate(${rot.toFixed(1)})" opacity="${(1-fuera).toFixed(3)}">
+      <rect x="-62" y="-80" width="124" height="160" rx="8" fill="${W}" stroke="${K}" stroke-width="9"/>
+      <text x="0" y="-44" text-anchor="middle" font-family="${ANTON}" font-size="27" fill="${K}">FACTURA</text>
+      <path d="M-40,-20 h80 M-40,0 h60 M-40,20 h70" stroke="${K}" stroke-width="7" stroke-linecap="round"/>
+      <rect x="-42" y="40" width="84" height="22" rx="4" fill="${K}"/></g>`;
+    const rayos=susto>.2?`<g stroke="${K}" stroke-width="8" stroke-linecap="round" opacity="${susto.toFixed(2)}"><path d="M60,40 l-22,-20"/><path d="M200,30 l20,-22"/><path d="M130,14 v-24"/></g>`:'';
+    return E.pon(quique({la,ra,px:ojos[0],py:ojos[1],er:24+5*susto,brow:16*susto,dy:salto+respira(t)})+mano(la,salto)+mano(ra,salto))+rayos+factura;
+  }
+
+  // Middle form: Quique throws envelopes into the form (the home page's newsletter scene).
+  const svgSobres=document.getElementById('q-sobres');
+  function sobres(t){
+    const u=t%3.2;
+    const m=ojosAlPuntero(svgSobres,[290,95],480,[9,2]);
+    let ra=[430,190], s='', px=m[0], py=m[1];
+    if(u<1){const k=eio(u/.5);s+=sobre(486,150,k,8,1)}
+    else if(u<1.35){const k=eio((u-1)/.35);ra=mezcla([430,190],[460,214],k);s+=sobre(500+14*k,170+20*k,1,8+18*k,1)}
+    else if(u<2.4){
+      const k=(u-1.35)/1.05, e=eio(Math.min(1,k*1.4));
+      ra=mezcla([460,214],[412,112],e);
+      const x=514+(-560-514)*k, y=190-Math.sin(k*Math.PI)*70+(150-190)*k;
+      s+=sobre(x,y,1-.55*k,26-334*k,k<.82?1:Math.max(0,1-(k-.82)/.18));
+      px=-11;py=-4;
+    } else {const k=eio((u-2.4)/.8);ra=mezcla([412,112],[430,190],k)}
+    const la=[150,380];
+    return quique({la,ra,px,py,brow:u>1.35&&u<2.4?10:0,dy:Math.sin(t*PI2/2.8)*4})+mano(la)+s+mano(ra);
+  }
+
+  // 1. Spain and the world: Quique spins a globe and a price tag flies out of it, straight at him.
+  function mundo(t){
+    const E=escena(52,350,.55), u=t%4.4, G=[440,160], R=100;
+    const empuje=u<.7?Math.sin(u/.7*Math.PI):0;
+    const ra=E.local([G[0]-R-4,G[1]-10+60*eio(Math.min(1,u/.7))*(u<.7?1:0)+(u>=.7?50*(1-eio(Math.min(1,(u-.7)/.6))):0)]);
+    const la=[160,380];
+    const off=-((t*34+empuje*20)%400);
+    const tierras=dx=>`<g transform="translate(${(G[0]-200+off+dx).toFixed(1)} ${G[1]})">
+      <path d="M40,-70 c20,-6 40,4 38,20 c-2,14 -18,18 -14,34 c4,14 22,22 18,44 c-4,20 -20,34 -28,30 c-8,-4 -2,-24 -10,-40 c-8,-16 -26,-20 -28,-40 c-2,-22 8,-42 24,-48 Z"/>
+      <path d="M170,-60 c30,-14 80,-12 110,0 c20,8 18,26 0,30 c-18,4 -30,-6 -44,6 c-12,10 -4,26 -20,30 c-16,4 -30,-14 -48,-10 c-16,4 -22,-12 -14,-26 c6,-12 4,-24 16,-30 Z"/>
+      <path d="M190,6 c18,-6 40,0 44,16 c4,18 -10,26 -12,44 c-2,18 -14,30 -24,26 c-10,-4 -8,-22 -16,-36 c-8,-14 -10,-44 8,-50 Z"/>
+      <path d="M320,40 c14,-8 34,-4 38,8 c4,12 -10,22 -26,20 c-14,-2 -22,-20 -12,-28 Z"/></g>`;
+    const fase=t*.6;
+    const meridiano=k=>{const rx=Math.abs(Math.sin(fase+k))*R;return `<ellipse cx="${G[0]}" cy="${G[1]}" rx="${rx.toFixed(1)}" ry="${R}" fill="none" stroke="${K}" stroke-width="4" opacity=".3"/>`};
+    const globo=`<path d="M${G[0]+34},${G[1]-114} A118,118 0 0 1 ${G[0]-34},${G[1]+114}" fill="none" stroke="${K}" stroke-width="10" stroke-linecap="round"/>
+      <rect x="${G[0]-6}" y="${G[1]+108}" width="12" height="44" rx="5" fill="${K}"/><ellipse cx="${G[0]}" cy="${G[1]+156}" rx="62" ry="13" fill="${K}"/>
+      <clipPath id="clip-mundo"><circle cx="${G[0]}" cy="${G[1]}" r="${R-4}"/></clipPath>
+      <circle cx="${G[0]}" cy="${G[1]}" r="${R}" fill="${W}"/>
+      <g clip-path="url(#clip-mundo)" fill="${K}">${tierras(0)}${tierras(400)}${tierras(-400)}${meridiano(0)}${meridiano(Math.PI/2)}<line x1="${G[0]-R}" y1="${G[1]}" x2="${G[0]+R}" y2="${G[1]}" stroke="${K}" stroke-width="4" opacity=".3"/></g>
+      <circle cx="${G[0]}" cy="${G[1]}" r="${R}" fill="none" stroke="${K}" stroke-width="10"/>
+      <path d="M${G[0]-62},${G[1]-48} a74,74 0 0 1 38,-36" fill="none" stroke="${W}" stroke-width="9" stroke-linecap="round" opacity=".9"/>`;
+    // The tag: out of the globe, over to Quique.
+    const vuelo=u<1.3?-1:u<2.5?(u-1.3)/1.2:u<3.6?1:2;
+    let etiqueta='', ojos=mirar(E.global([250,95]),G), brow=0, feliz=0;
+    if(vuelo>=0&&vuelo<=1){
+      const k=eio(vuelo), P=[430+(296-430)*k, 70+(56-70)*k-60*Math.sin(Math.PI*k)];
+      const op=vuelo===1&&u>3.2?1-(u-3.2)/.4:1;
+      etiqueta=`<g transform="translate(${P[0].toFixed(1)} ${P[1].toFixed(1)}) rotate(${(-12+30*k).toFixed(1)}) scale(${(.5+.5*Math.min(1,vuelo*3)).toFixed(3)})" opacity="${Math.max(0,op).toFixed(3)}">
+        <path d="M-40,-22 h64 l18,22 l-18,22 h-64 a8,8 0 0 1 -8,-8 v-28 a8,8 0 0 1 8,-8 Z" fill="${W}" stroke="${K}" stroke-width="8" stroke-linejoin="round"/>
+        <circle cx="22" cy="0" r="5" fill="${K}"/><text x="-12" y="13" text-anchor="middle" font-family="${ANTON}" font-size="36" fill="${K}">€</text></g>`;
+      ojos=mirar(E.global([250,95]),P);
+      if(vuelo>.85){brow=12;ojos=[10,-6]}
+    }
+    if(u>=3.6)feliz=0;
+    return globo+E.pon(quique({la,ra,px:ojos[0],py:ojos[1],brow,feliz,er:brow?27:24,dy:respira(t)})+mano(la)+mano(ra))+etiqueta;
+  }
+
+  // 2. Quique points at a sign: A TI.
+  function ati(t){
+    const E=escena(56,350,.55), u=t%4.6;
+    const toque=Math.max(0,Math.sin(t*PI2/1.15))*14;
+    const ra=E.local([326+toque,168]), mira=u<2.6, feliz=u>2.9&&u<3.9?1:0;
+    const ojos=mira?[11,-1]:[0,4];
+    const giro=-5+2*Math.sin(t*PI2/3), brillo=.5+.5*Math.sin(t*PI2/1.15);
+    const cartel=`<g transform="translate(462 166) rotate(${giro.toFixed(2)})">
+      <rect x="-102" y="-66" width="214" height="140" rx="12" fill="${K}"/>
+      <rect x="-110" y="-74" width="214" height="140" rx="12" fill="${W}" stroke="${K}" stroke-width="10"/>
+      <text x="-3" y="28" text-anchor="middle" font-family="${ANTON}" font-size="88" fill="${K}">A TI</text></g>
+      <g stroke="${K}" stroke-width="8" stroke-linecap="round" opacity="${brillo.toFixed(2)}"><path d="M560,72 l18,-18"/><path d="M576,112 h22"/><path d="M528,52 l6,-24"/></g>`;
+    const la=[160,380];
+    return cartel+E.pon(quique({la,ra,px:ojos[0],py:ojos[1],feliz,brow:feliz?6:0,dy:respira(t)})+mano(la)+mano(ra));
+  }
+
+  // 3. A calendar: the last day gets circled, Quique celebrates.
+  function plazo(t){
+    const E=escena(44,350,.55), u=t%4.4;
+    const p=eio(Math.min(1,Math.max(0,(u-.4)/1.1))), sale=u>3.7?eio((u-3.7)/.6):0;
+    const ang=-Math.PI/2-.3+p*PI2*1.04, punta=[420+80*Math.cos(ang),214+66*Math.sin(ang)];
+    const hecho=u>1.5&&u<3.6, salto=u>1.5&&u<1.95?-Math.sin((u-1.5)/.45*Math.PI)*16:0;
+    const ojos=p>0&&p<1?mirar(E.global([250,95]),punta):[6,2];
+    const ra=hecho?E.local([300+6*Math.sin(t*PI2*1.6),130]):E.local([306,216]);
+    const cal=`<g transform="rotate(${(Math.sin(t*PI2/3.2)*1.5).toFixed(2)} 420 40)">
+      <rect x="320" y="44" width="200" height="266" rx="16" fill="${W}" stroke="${K}" stroke-width="11"/>
+      <rect x="320" y="44" width="200" height="64" rx="14" fill="${K}"/>
+      <rect x="360" y="26" width="12" height="34" rx="6" fill="${K}"/><rect x="468" y="26" width="12" height="34" rx="6" fill="${K}"/>
+      <text x="420" y="94" text-anchor="middle" font-family="${ANTON}" font-size="38" fill="${Y}">PLAZO</text>
+      <text x="420" y="272" text-anchor="middle" font-family="${ANTON}" font-size="140" fill="${K}">30</text>
+      <ellipse cx="420" cy="214" rx="80" ry="66" transform="rotate(-6 420 214)" fill="none" stroke="${K}" stroke-width="9" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="${(100-100*p*1.04).toFixed(2)}" opacity="${(1-sale).toFixed(3)}"/></g>`;
+    const la=hecho?E.local([96,140]):[160,380];
+    return cal+E.pon(quique({la,ra,px:ojos[0],py:ojos[1],feliz:hecho?1:0,brow:hecho?8:0,dy:salto+respira(t)})+mano(la,salto)+mano(ra,salto));
+  }
+
+  // 4. Two bubbles argue across Quique; he listens to both and takes no side.
+  function bandos(t){
+    const E=escena(162,350,.55), u=t%6.4;
+    const izq=hump(u,0,2.2,.3), der=hump(u,2.2,4.4,.3), ambos=hump(u,4.4,6.4,.4);
+    const charla=k=>1+.05*k*Math.abs(Math.sin(t*PI2*2.4));
+    const bocadillo=(x,lado,k,negro)=>{
+      const f=negro?K:W, l=negro?W:K, esc=(.9+.1*k)*(1-.06*ambos)*charla(k);
+      const cola=lado<0?'M150,96 l40,40 l-6,-40':'M40,96 l-40,40 l6,-40';
+      return `<g transform="translate(${x} 92) scale(${esc.toFixed(3)}) translate(-95 -60)">
+        <path d="${cola}" fill="${f}" stroke="${K}" stroke-width="9" stroke-linejoin="round"/>
+        <rect x="0" y="0" width="190" height="104" rx="24" fill="${f}" stroke="${K}" stroke-width="9"/>
+        <rect x="28" y="28" width="${(110+20*Math.sin(t*9+x)*k).toFixed(1)}" height="11" rx="5.5" fill="${l}"/>
+        <rect x="28" y="52" width="${(134-16*Math.sin(t*7+x)*k).toFixed(1)}" height="11" rx="5.5" fill="${l}"/>
+        <rect x="28" y="76" width="70" height="11" rx="5.5" fill="${l}"/></g>`;
+    };
+    const ojos=izq>.5?[-11,-5]:der>.5?[11,-5]:[0,3];
+    const la=mezcla([160,380],[96,262],ambos), ra=mezcla([340,380],[404,262],ambos);
+    return bocadillo(112,-1,izq,true)+bocadillo(488,1,der,false)+E.pon(quique({la,ra,px:ojos[0],py:ojos[1],brow:10*ambos,feliz:ambos>.6?1:0,dy:respira(t)})+mano(la)+mano(ra));
+  }
+
+  // Goodbye: Quique waves, with the newsletter under his arm.
+  function adios(t){
+    const E=escena(40,458,.68), u=t%3.6;
+    const a=hump(u,.2,2.6,.45), ag=Math.sin(t*PI2*2.2)*16*a;
+    const la=[168,392], ra=[340+90*a+ag,372-200*a];
+    const S=E.global([118,402]);
+    return E.pon(quique({la,ra,feliz:a>.5?1:0,brow:8*a,px:-4,py:2,dy:respira(t)}))+sobre(S[0],S[1]+respira(t)*.68,.62,-14,1)+E.pon(mano(la)+mano(ra));
+  }
+
+  // Who writes: Quique says hello.
+  function hola(t){
+    const E=escena(38,288,.45), u=t%3.4;
+    const a=hump(u,.2,2.4,.45), ag=Math.sin(t*PI2*2.2)*16*a;
+    const la=[160,380], ra=[340+90*a+ag,372-200*a];
+    return E.pon(quique({la,ra,feliz:a>.5?1:0,brow:8*a,px:-3,py:3,dy:respira(t)})+mano(la)+mano(ra));
+  }
+
+  // FAQ: Quique scratches his head under a floating question mark.
+  function duda(t){
+    const E=escena(20,290,.46), u=t%3;
+    const rasca=Math.sin(t*PI2*2.6)*14*hump(u,.3,1.9,.25);
+    const ra=[372+rasca*.4,96+rasca], la=[160,380];
+    const flota=Math.sin(t*PI2/2.4)*6, pulso=1+.06*Math.sin(t*PI2/1.2);
+    const marcas=`<g transform="translate(286 ${(118+flota).toFixed(1)}) scale(${pulso.toFixed(3)})"><text x="0" y="0" text-anchor="middle" font-family="${ANTON}" font-size="110" fill="${K}">¿?</text></g>`;
+    return marcas+E.pon(quique({la,ra,px:8,py:-7,brow:-4+6*hump(u,.3,1.9,.25),dy:respira(t)})+mano(la)+mano(ra));
+  }
+
+  const ESC=[['q-heroe',heroe],['q-sorpresa',sorpresa],['q-sobres',sobres],['q-mundo',mundo],['q-ati',ati],['q-plazo',plazo],['q-bandos',bandos],['q-adios',adios],['q-hola',hola],['q-duda',duda]]
+    .map(([id,f])=>[document.getElementById(id),f]).filter(e=>e[0]);
+  const visible=el=>{const r=el.getBoundingClientRect();return r.width>0&&r.bottom>-200&&r.top<innerHeight+200};
+  const pinta=(t,todo)=>ESC.forEach(([el,f])=>{if(todo||visible(el))el.innerHTML=f(t)});
+  if(quieto)pinta(2,true);
+  else{const t0=performance.now();pinta(0,true);const bucle=n=>{pinta((n-t0)/1000);requestAnimationFrame(bucle)};requestAnimationFrame(bucle)}
+  // "Así te llega": measure how far the email has to scroll, then start the loop (never with reduced motion).
+  (function(){
+    const el=document.getElementById('llega'); if(!el)return;
+    const img=el.querySelector('.llega-scroll img'), caja=el.querySelector('.llega-scroll');
+    const mide=()=>el.style.setProperty('--dist',Math.max(0,img.offsetHeight-caja.clientHeight)+'px');
+    const arranca=()=>{mide();if(!matchMedia('(prefers-reduced-motion: reduce)').matches)el.classList.add('va')};
+    if(img.complete&&img.naturalWidth)arranca();else img.addEventListener('load',arranca,{once:true});
+    addEventListener('resize',mide);
+  })();
+})();
+</script>
+</body>
+</html>
